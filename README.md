@@ -1,126 +1,43 @@
 # OOPHouse
-// Abstract class
-abstract class Building {
-    String owner;
-    String address;
+📖 Description
 
-    // Constructor
-    Building(String owner, String address) {
-        this.owner = owner;
-        this.address = address;
-    }
+    This project demonstrates the concepts of Object-Oriented Programming (OOP) in Java through a real-world example of Buildings, Houses, and Villas.
+    It applies Abstraction, Encapsulation, Inheritance, and Polymorphism to simulate a simple real estate management system.
 
-    // Abstract method
-    abstract void build();
-}
+    The program defines an abstract Building class, extended by House and Villa, each with unique features like rooms, floors, renovation options, and swimming pools. The project showcases constructor    overloading, method overloading, method overriding, and encapsulation in action.
 
-// House class inherits Building
-class House extends Building {
-    // Private variables for encapsulation
-    private int rooms;
-    private int floors;
+🎯 Objectives
 
-    // Static variable
-    static String country = "India";
+    Implement and demonstrate the four pillars of OOP.
 
-    // Constructor overloading
-    House(String owner, String address, int rooms, int floors) {
-        super(owner, address);
-        this.rooms = rooms;
-        this.floors = floors;
-    }
+    Simulate real-world property management using Java.
 
-    House(String address, int rooms) {
-        super("Rasiha", address);
-        this.rooms = rooms;
-        this.floors = 1;
-    }
+    Showcase constructor overloading, method overloading, and overriding.
 
-    // Getter & Setter methods
-    public int getRooms() {
-        return rooms;
-    }
-    public void setRooms(int rooms) {
-        this.rooms = rooms;
-    }
+    Build a scalable base for future real estate applications.
 
-    public int getFloors() {
-        return floors;
-    }
+🔑 Features
 
-    public void setFloors(int floors) {
-        this.floors = floors;
-    }
+    Abstract class Building with common attributes (owner, address).
 
-    // Method overloading renovate()
-    void renovate(String feature) {
-        System.out.println("Renovating house with: " + feature);
-    }
+    Encapsulation with private variables and getter/setter methods.
 
-    void renovate(String feature, int cost) {
-        System.out.println("Renovating house with: " + feature + " costing ₹" + cost);
-    }
+    Static variable (country) shared across all houses.
 
-    // Override build()
-    @Override
-    void build() {
-        System.out.println("Building a beautiful house with " + rooms + " rooms in " + address);
-    }
+    Constructor overloading for flexible object creation.
 
-    // showDetails()
-    void showDetails() {
-        System.out.println("House owned by: " + owner + " | Rooms: " + rooms + " | Floors: " + floors
-                + " | Address: " + address + " | Country: " + country);
-    }
-}
+    Method overloading for house renovation (renovate).
 
-// Villa class inherits House
-class Villa extends House {
-    boolean hasSwimmingPool;
+    Inheritance hierarchy → Building → House → Villa.
 
-    // Constructor
-    Villa(String owner, String address, int rooms, int floors, boolean hasSwimmingPool) {
-        super(owner, address, rooms, floors);
-        this.hasSwimmingPool = hasSwimmingPool;
-    }
+    Overridden methods (build() and showDetails()) for customization.
 
-    // Override build()
-    @Override
-    void build() {
-        System.out.println("Building a luxurious villa with swimming pool in " + super.address);
-    }
+📌 Future Enhancements
 
-    // Override showDetails()
-    @Override
-    void showDetails() {
-        super.showDetails();
-        System.out.println("Swimming Pool: " + (hasSwimmingPool ? "Yes" : "No"));
-    }
-}
+    Add price and area details for properties.
 
-// Main class
-public class OOPHouse{
-    public static void main(String[] args) {
-        // House 1
-        House h1 = new House("Tamil", "Pudukkottai", 3, 2);
-        h1.build();
-        h1.showDetails();
+    Introduce interfaces for rent/sale options.
 
-        System.out.println();
+    Connect with a database for persistent storage.
 
-        // House 2
-        House h2 = new House("Trichy", 2);
-        h2.build();
-        h2.showDetails();
-        System.out.println();
-        h1.renovate("Garden");
-        h1.renovate("Balcony", 50000);
-
-        System.out.println();
-
-        // Villa
-        Villa v1 = new Villa("Thanishka", "ECR, Chennai", 5, 3, true);
-        v1.build();
-        v1.showDetails();
-    }
-}
+    Build a GUI or web app for user-friendly interaction.
